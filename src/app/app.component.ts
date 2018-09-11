@@ -10,7 +10,7 @@ import {WorkPoolService} from "./services/work-pool.service";
 import {Router} from "@angular/router";
 import {RepresentativeService} from "./services/representative.service";
 import {NodeService} from "./services/node.service";
-import Nano from "hw-app-nano";
+import NOS from "hw-app-nano";
 import TransportU2F from "@ledgerhq/hw-transport-u2f";
 
 @Component({
@@ -75,11 +75,11 @@ export class AppComponent implements OnInit {
       }
     });
 
-    // Listen for an xrb: protocol link, triggered by the desktop application
+    // Listen for an nollar: protocol link, triggered by the desktop application
     window.addEventListener('protocol-load', (e: CustomEvent) => {
       const protocolText = e.detail;
-      const stripped = protocolText.split('').splice(4).join(''); // Remove xrb:
-      if (stripped.startsWith('xrb_')) {
+      const stripped = protocolText.split('').splice(7).join(''); // Remove nollar:
+      if (stripped.startsWith('usd_')) {
         this.router.navigate(['account', stripped]);
       }
       // Soon: Load seed, automatic send page?
@@ -110,12 +110,12 @@ export class AppComponent implements OnInit {
     const searchData = this.searchData.trim();
     if (!searchData.length) return;
 
-    if (searchData.startsWith('xrb_')) {
+    if (searchData.startsWith('usd_')) {
       this.router.navigate(['account', searchData]);
     } else if (searchData.length === 64) {
       this.router.navigate(['transaction', searchData]);
     } else {
-      this.notifications.sendWarning(`Invalid Nano account or transaction hash!`)
+      this.notifications.sendWarning(`Invalid NOS account or transaction hash!`)
     }
     this.searchData = '';
   }
@@ -125,7 +125,7 @@ export class AppComponent implements OnInit {
   }
 
   async updateFiatPrices() {
-    const displayCurrency = this.settings.getAppSetting(`displayCurrency`) || 'USD';
+    const displayCurrency = this.settings.getAppSetting(`displayCurrency`) || '';
     await this.price.getPrice(displayCurrency);
     this.walletService.reloadFiatBalances();
     setTimeout(() => this.updateFiatPrices(), this.fiatTimeout);

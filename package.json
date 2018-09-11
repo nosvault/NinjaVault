@@ -1,9 +1,9 @@
 {
-  "name": "NanoVault",
+  "name": "NOSwallet",
   "version": "1.0.4",
   "license": "MIT",
-  "description": "Wallet for interacting with Nano",
-  "author": "Andrew Steele",
+  "description": "Wallet for NOS stablecoins",
+  "author": "Andrew Steele et al.",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -81,10 +81,10 @@
     "uikit": "^3.0.0-beta.40"
   },
   "build": {
-    "appId": "com.electron.nanovault",
+    "appId": "com.electron.noswallet",
     "buildVersion": "1.0.4",
-    "productName": "NanoVault",
-    "copyright": "Copyright © 2018 Andrew Steele",
+    "productName": "NOSwallet",
+    "copyright": "Copyright © 2018 Andrew Steele et al.",
     "directories": {
       "output": "dist-desktop",
       "app": "./"
@@ -94,9 +94,9 @@
       "extendInfo": {
         "CFBundleURLTypes": [
           {
-            "CFBundleURLName": "xrb",
+            "CFBundleURLName": "nollar",
             "CFBundleURLSchemes": [
-              "xrb"
+              "nollar"
             ]
           }
         ]
@@ -108,14 +108,14 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "cronoh",
-        "repo": "nanovault"
+        "owner": "NOS-Cash",
+        "repo": "NOSvault"
       }
     ],
     "protocols": {
-      "name": "xrb",
+      "name": "nollar",
       "schemes": [
-        "xrb"
+        "nollar"
       ],
       "role": "Viewer"
     }
