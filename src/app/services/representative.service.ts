@@ -84,7 +84,7 @@ export class RepresentativeService {
   // Default representatives list
   defaultRepresentatives = [
     {
-      id: ''usd_38sc7r7x8y3o3mte4aaeegwdhpjiczugbyfgtsj868bqa5pkmiohad1utd7b,
+      id: 'usd_38sc7r7x8y3o3mte4aaeegwdhpjiczugbyfgtsj868bqa5pkmiohad1utd7b',
       name: 'Officiel Rep 1',
       trusted: true,
     },
