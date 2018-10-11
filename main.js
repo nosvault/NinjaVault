@@ -3,7 +3,7 @@ const autoUpdater = require('electron-updater').autoUpdater;
 const url = require('url');
 const path = require('path');
 
-app.setAsDefaultProtocolClient('nollar'); // Register handler for nollar: links
+app.setAsDefaultProtocolClient('nos'); // Register handler for nos: links
 
 let mainWindow;
 

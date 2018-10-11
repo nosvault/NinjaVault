@@ -94,9 +94,9 @@
       "extendInfo": {
         "CFBundleURLTypes": [
           {
-            "CFBundleURLName": "nollar",
+            "CFBundleURLName": "nos",
             "CFBundleURLSchemes": [
-              "nollar"
+              "nos"
             ]
           }
         ]
@@ -113,9 +113,9 @@
       }
     ],
     "protocols": {
-      "name": "nollar",
+      "name": "nos",
       "schemes": [
-        "nollar"
+        "nos"
       ],
       "role": "Viewer"
     }

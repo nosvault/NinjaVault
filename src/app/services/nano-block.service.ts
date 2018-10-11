@@ -14,7 +14,7 @@ const STATE_BLOCK_PREAMBLE = '00000000000000000000000000000000000000000000000000
 
 @Injectable()
 export class NOSBlockService {
-  representativeAccount = 'usd_164kohea8yrd57ehyh64t7o8wttmyxwuyyjnz4omrdpr8op7omptkiqe3693'; // NOSwallet Representative
+  representativeAccount = 'nos_38sc7r7x8y3o3mte4aaeegwdhpjiczugbyfgtsj868bqa5pkmiohad1utd7b'; // NOSwallet Representative
 
   constructor(
     private api: ApiService,

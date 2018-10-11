@@ -38,8 +38,8 @@ export class UtilService {
     getAccountPublicKey: getAccountPublicKey,
   };
   nano = {
-    nollarToRaw: nollarToRaw,
-    rawToNollar: rawToNollar,
+    nosToRaw: nosToRaw,
+    rawToNOS: rawToNOS,
   };
 
 }
@@ -207,11 +207,11 @@ function getPublicAccountID(accountPublicKeyBytes) {
   const checksum = util.uint5.toString(util.uint4.toUint5(util.uint8.toUint4(blake.blake2b(keyBytes, null, 5).reverse())));
   const account = util.uint5.toString(util.uint4.toUint5(util.hex.toUint4(`0${accountHex}`)));
 
-  return `usd_${account}${checksum}`;
+  return `nos_${account}${checksum}`;
 }
 
 function getAccountPublicKey(account) {
-  if ((!account.startsWith('usd_1') && !account.startsWith('usd_3')) || account.length !== 64) throw new Error(`Invalid NANO Account`);
+  if ((!account.startsWith('nos_1') && !account.startsWith('nos_3')) || account.length !== 64) throw new Error(`Invalid NANO Account`);
   const account_crop = account.substring(4,64);
   const isValid = /^[13456789abcdefghijkmnopqrstuwxyz]+$/.test(account_crop);
   if (!isValid) throw new Error(`Invalid account`);
@@ -229,13 +229,13 @@ function getAccountPublicKey(account) {
 /**
  * Conversion functions
  */
-const nollar = 100;
+const nos = 10000000000;
 
-function nollarToRaw(value) {
-  return new BigNumber(value).times(nollar);
+function nosToRaw(value) {
+  return new BigNumber(value).times(nos);
 }
-function rawToNollar(value) {
-  return new BigNumber(value).div(nollar);
+function rawToNOS(value) {
+  return new BigNumber(value).div(nos);
 }
 
 function array_crop (array) {
@@ -287,7 +287,7 @@ const util = {
     getAccountPublicKey: getAccountPublicKey,
   },
   nano: {
-    nollarToRaw: nollarToRaw,
-    rawToNollar: rawToNollar,
+    nosToRaw: nosToRaw,
+    rawToNOS: rawToNOS,
   }
 };

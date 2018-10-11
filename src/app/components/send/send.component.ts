@@ -22,7 +22,7 @@ const nacl = window['nacl'];
   styleUrls: ['./send.component.css']
 })
 export class SendComponent implements OnInit {
-  nollar = 100;
+  nos = 10000000000;
 
   activePanel = 'send';
 
@@ -32,7 +32,7 @@ export class SendComponent implements OnInit {
   addressBookMatch = '';
 
   amounts = [
-    { name: 'NOLLAR', shortName: 'USD', value: 'nollar' },
+    { name: 'NOS', shortName: 'NOS', value: 'nos' },
   ];
   selectedAmount = this.amounts[0];
 
@@ -98,14 +98,14 @@ export class SendComponent implements OnInit {
     const precision = this.settings.settings.displayCurrency === 'BTC' ? 1000000 : 100;
 
     // Determine fiat value of the amount
-    const fiatAmount = this.util.nano.rawToNollar(rawAmount).times(this.price.price.lastPrice).times(precision).floor().div(precision).toNumber();
+    const fiatAmount = this.util.nano.rawToNOS(rawAmount).times(this.price.price.lastPrice).times(precision).floor().div(precision).toNumber();
     this.amountFiat = fiatAmount;
   }
 
   // An update to the fiat amount, sync the nano value based on currently selected denomination
   syncNOSPrice() {
     const fiatAmount = this.amountFiat || 0;
-    const rawAmount = this.util.nano.nollarToRaw(new BigNumber(fiatAmount).div(this.price.price.lastPrice));
+    const rawAmount = this.util.nano.nosToRaw(new BigNumber(fiatAmount).div(this.price.price.lastPrice));
     this.amount = this.getAmountValueFromBase(rawAmount).toNumber();	
   }
 
@@ -175,10 +175,10 @@ export class SendComponent implements OnInit {
     if (from.balanceBN.minus(rawAmount).lessThan(0)) return this.notificationService.sendError(`From account does not have enough funds`);
 
     // Determine a proper raw amount to show in the UI, if a decimal was entered
-    this.amountRaw = this.rawAmount.mod(this.nollar);
+    this.amountRaw = this.rawAmount.mod(this.nos);
 
     // Determine fiat value of the amount
-    this.amountFiat = this.util.nano.rawToNollar(rawAmount).times(this.price.price.lastPrice).toNumber();
+    this.amountFiat = this.util.nano.rawToNOS(rawAmount).times(this.price.price.lastPrice).toNumber();
 
     // Start precopmuting the work...
     this.fromAddressBook = this.addressBookService.getAccountName(this.fromAccountID);
@@ -242,14 +242,14 @@ export class SendComponent implements OnInit {
 
     switch (this.selectedAmount.value) {
       default:
-      case 'nollar': return this.util.nano.nollarToRaw(value);
+      case 'nos': return this.util.nano.nosToRaw(value);
     }
   }
 
   getAmountValueFromBase(value) {
     switch (this.selectedAmount.value) {
       default:
-      case 'nollar': return this.util.nano.rawToNollar(value);
+      case 'nos': return this.util.nano.rawToNOS(value);
     }
   }
 

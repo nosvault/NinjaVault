@@ -18,7 +18,7 @@ export class AppSettingsService {
   storeKey = `noswallet-appsettings`;
 
   settings: AppSettings = {
-    displayDenomination: 'nollar',
+    displayDenomination: 'nos',
     walletStore: 'localStorage',
     displayCurrency: '',
     lockOnClose: 1,
@@ -64,7 +64,7 @@ export class AppSettingsService {
   clearAppSettings() {
     localStorage.removeItem(this.storeKey);
     this.settings = {
-      displayDenomination: 'nollar',
+      displayDenomination: 'nos',
       walletStore: 'localStorage',
       displayCurrency: '',
       lockOnClose: 1,

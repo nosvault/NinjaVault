@@ -84,17 +84,17 @@ export class RepresentativeService {
   // Default representatives list
   defaultRepresentatives = [
     {
-      id: 'usd_38sc7r7x8y3o3mte4aaeegwdhpjiczugbyfgtsj868bqa5pkmiohad1utd7b',
+      id: 'nos_11z6biqiug5k31448uy38f48q9qgm714153k7spyfpb9qnwrobd6udirkbwe',
       name: 'Officiel Rep 1',
       trusted: true,
     },
     {
-      id: 'usd_17ud5axjpcmsefzpfz6wpdsztnsuspqimdw9wrinny86tggnz6kcywmfpygq',
+      id: 'nos_3xa89jscojiw3ukxowiduantpi3tscqhwg9tgbn9etua96854zt65rbhc1i9',
       name: 'Official Rep 2',
       warn: true,
     },
     {
-      id: 'usd_3qban7e1knwkidmtikpssfhjr8ggh549c5qyg8qm36jdereyhihwatrysb75',
+      id: 'nos_1oddukrxwpaqmxjqmk3owbp4gh7ichsio5gaiostgm1skztuwsq51osqqfmy',
       name: 'Official Rep 3',
       warn: true,
     },

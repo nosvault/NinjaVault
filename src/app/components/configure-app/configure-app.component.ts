@@ -19,7 +19,7 @@ export class ConfigureAppComponent implements OnInit {
   wallet = this.walletService.wallet;
 
   denominations = [
-    { name: 'NOLLAR (USD)', value: 'nollar' },
+    { name: 'NOS (NOS)', value: 'NOS' },
   ];
   selectedDenomination = this.denominations[0].value;
 

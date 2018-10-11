@@ -7,16 +7,16 @@ import {AppSettingsService} from "../services/app-settings.service";
 export class RaiPipe implements PipeTransform {
   precision = 2;
 
-  nollar = 100; // 1 USD = 100 cents
+  nos = 10000000000; // 1 nos = 10000000000 raw
 
   transform(value: any, args?: any): any {
     const opts = args.split(',');
-    let denomination = opts[0] || 'nollar';
+    let denomination = opts[0] || 'nos';
     const hideText = opts[1] || false;
 
     switch (denomination.toLowerCase()) {
       default:  
-      case 'nollar': return `${(value / this.nollar).toFixed(this.precision)}${!hideText ? ' USD': ''}`;
+      case 'nos': return `${(value / this.nos).toFixed(this.precision)}${!hideText ? 'NOS': ''}`;
     }
   }
   

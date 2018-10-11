@@ -462,12 +462,12 @@ export class WalletService {
     const fiatPrice = this.price.price.lastPrice;
 
     this.wallet.accounts.forEach(account => {
-      account.balanceFiat = this.util.nano.rawToNollar(account.balance).times(fiatPrice).toNumber();
-      account.pendingFiat = this.util.nano.rawToNollar(account.pending).times(fiatPrice).toNumber();
+      account.balanceFiat = this.util.nano.rawToNOS(account.balance).times(fiatPrice).toNumber();
+      account.pendingFiat = this.util.nano.rawToNOS(account.pending).times(fiatPrice).toNumber();
     });
 
-    this.wallet.balanceFiat = this.util.nano.rawToNollar(this.wallet.balance).times(fiatPrice).toNumber();
-    this.wallet.pendingFiat = this.util.nano.rawToNollar(this.wallet.pending).times(fiatPrice).toNumber();
+    this.wallet.balanceFiat = this.util.nano.rawToNOS(this.wallet.balance).times(fiatPrice).toNumber();
+    this.wallet.pendingFiat = this.util.nano.rawToNOS(this.wallet.pending).times(fiatPrice).toNumber();
   }
 
   async reloadBalances(reloadPending = true) {
@@ -501,8 +501,8 @@ export class WalletService {
       walletAccount.balanceRaw = new BigNumber(walletAccount.balance).mod(this.nano);
       walletAccount.pendingRaw = new BigNumber(walletAccount.pending).mod(this.nano);
 
-      walletAccount.balanceFiat = this.util.nano.rawToNollar(walletAccount.balance).times(fiatPrice).toNumber();
-      walletAccount.pendingFiat = this.util.nano.rawToNollar(walletAccount.pending).times(fiatPrice).toNumber();
+      walletAccount.balanceFiat = this.util.nano.rawToNOS(walletAccount.balance).times(fiatPrice).toNumber();
+      walletAccount.pendingFiat = this.util.nano.rawToNOS(walletAccount.pending).times(fiatPrice).toNumber();
 
       walletAccount.frontier = frontiers.frontiers[accountID] || null;
 
@@ -530,8 +530,8 @@ export class WalletService {
     this.wallet.balanceRaw = new BigNumber(walletBalance).mod(this.nano);
     this.wallet.pendingRaw = new BigNumber(walletPending).mod(this.nano);
 
-    this.wallet.balanceFiat = this.util.nano.rawToNollar(walletBalance).times(fiatPrice).toNumber();
-    this.wallet.pendingFiat = this.util.nano.rawToNollar(walletPending).times(fiatPrice).toNumber();
+    this.wallet.balanceFiat = this.util.nano.rawToNOS(walletBalance).times(fiatPrice).toNumber();
+    this.wallet.pendingFiat = this.util.nano.rawToNOS(walletPending).times(fiatPrice).toNumber();
 
     // If there is a pending balance, search for the actual pending transactions
     if (reloadPending && walletPending.gt(0)) {
@@ -677,7 +677,7 @@ export class WalletService {
       if (this.successfulBlocks.length >= 15) this.successfulBlocks.shift();
       this.successfulBlocks.push(nextBlock.hash);
 
-      const receiveAmount = this.util.nano.rawToNollar(nextBlock.amount);
+      const receiveAmount = this.util.nano.rawToNOS(nextBlock.amount);
       this.notifications.sendSuccess(`Successfully received ${receiveAmount.isZero() ? '' : receiveAmount.toFixed(6)} NOS!`);
 
       // await this.promiseSleep(500); // Give the node a chance to make sure its ready to reload all?

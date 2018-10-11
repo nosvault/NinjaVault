@@ -75,11 +75,11 @@ export class AppComponent implements OnInit {
       }
     });
 
-    // Listen for an nollar: protocol link, triggered by the desktop application
+    // Listen for an nos: protocol link, triggered by the desktop application
     window.addEventListener('protocol-load', (e: CustomEvent) => {
       const protocolText = e.detail;
-      const stripped = protocolText.split('').splice(7).join(''); // Remove nollar:
-      if (stripped.startsWith('usd_')) {
+      const stripped = protocolText.split('').splice(7).join(''); // Remove nos:
+      if (stripped.startsWith('nos_')) {
         this.router.navigate(['account', stripped]);
       }
       // Soon: Load seed, automatic send page?
@@ -110,7 +110,7 @@ export class AppComponent implements OnInit {
     const searchData = this.searchData.trim();
     if (!searchData.length) return;
 
-    if (searchData.startsWith('usd_')) {
+    if (searchData.startsWith('nos_')) {
       this.router.navigate(['account', searchData]);
     } else if (searchData.length === 64) {
       this.router.navigate(['transaction', searchData]);
