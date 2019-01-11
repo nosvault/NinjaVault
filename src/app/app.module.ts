@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HttpClient} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {AppRoutingModule} from "./app-routing.module";
@@ -44,7 +44,13 @@ import {MyNanoNinjaService} from "./services/mynanoninja.service";
 import {ManageRepresentativesComponent} from "./components/manage-representatives/manage-representatives.component";
 import {NodeService} from "./services/node.service";
 import {LedgerService} from "./ledger.service";
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -77,7 +83,14 @@ import {LedgerService} from "./ledger.service";
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ClipboardModule
+    ClipboardModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
   providers: [
     UtilService,

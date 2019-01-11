@@ -12,6 +12,7 @@ import {RepresentativeService} from "./services/representative.service";
 import {NodeService} from "./services/node.service";
 import Nano from "hw-app-nano";
 import TransportU2F from "@ledgerhq/hw-transport-u2f";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
   searchData = '';
 
   constructor(
+    private translate: TranslateService,
     private walletService: WalletService,
     private addressBook: AddressBookService,
     public settings: AppSettingsService,
@@ -42,7 +44,11 @@ export class AppComponent implements OnInit {
     private representative: RepresentativeService,
     private router: Router,
     private workPool: WorkPoolService,
-    public price: PriceService) { }
+    public price: PriceService) {
+      translate.setDefaultLang('en');
+      const browserLang = translate.getBrowserLang();
+      translate.use(browserLang);
+    }
 
   async ngOnInit() {
     this.windowHeight = window.innerHeight;

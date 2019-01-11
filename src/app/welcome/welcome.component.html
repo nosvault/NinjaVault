@@ -2,7 +2,7 @@
   <div class="uk-width-1-1 uk-animation-slide-left-small">
     <div uk-grid class="uk-text-center" style="margin-bottom: 90px;">
       <div class="uk-width-1-1" style="margin-top: 45px;">
-        <h2>Welcome to NinjaVault!</h2>
+        <h2>{{ 'welcome_to_vault' | translate }}</h2>
         <span class="uk-text-lead">The "no strings attached" open source wallet for <a href="https://nano.org" class="uk-link-text" target="_blank">Nano</a></span><br>
       </div>
       <div class="uk-width-1-1" *ngIf="!wallet.seed">

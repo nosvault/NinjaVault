@@ -160,6 +160,9 @@
             <a href="https://twitter.com/MyNanoNinja" uk-icon="icon: twitter" uk-tooltip title="Chat with us on Twitter" class="footer-link" target="_blank"></a>
             <a href="https://discord.me/nanonodeninja" uk-icon="icon: users" uk-tooltip title="Join our community on Discord" class="footer-link" target="_blank"></a>
             <a href="javascript:void(0)" uk-icon="icon: search" uk-tooltip title="View an account or transaction" class="footer-link" (click)="toggleSearch(true)"></a>
+            <select #langSelect (change)="translate.use(langSelect.value)">
+              <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+            </select>
           </div>
         </div>
 
