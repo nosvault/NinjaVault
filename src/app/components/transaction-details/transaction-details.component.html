@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="uk-margin" *ngIf="transaction?.contents?.representative">
-          <label class="uk-form-label">{{ 'representative' | translate }}:</label>
+          <label class="uk-form-label">{{ 'Representative' | translate }}:</label>
           <div class="uk-form-controls uk-text-truncate">
             <a [routerLink]="'/account/' + transaction?.contents?.representative" class="uk-link-text" uk-tooltip title="View Account Details">{{ transaction?.contents?.representative }}</a>
           </div>
