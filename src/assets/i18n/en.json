@@ -19,7 +19,6 @@
 	"Balance": "Balance",
 	"Block": "Block",
 	"Cancel": "Cancel",
-	"Change": "Change",
 	"Change_Representative": "Change Representative",
 	"Change_Wallet_Password": "Change Wallet Password",
 	"Change_your_representatives": "Change your representatives",
@@ -60,7 +59,6 @@
 	"Import_From_Seed": "Import From Seed",
 	"Import_Wallet": "Import Wallet",
 	"Ive_Saved_My_Seed_Mnemonic": "I've Saved My Seed/Mnemonic",
-	"Known": "Known",
 	"Learn_More": "Learn More",
 	"Ledger_App_Closed": "Ledger App Closed",
 	"Ledger_Disconnected": "Ledger Disconnected",
@@ -108,10 +106,8 @@
 	"Status": "Status",
 	"To_Account": "To Account",
 	"Transaction_Details": "Transaction Details",
-	"Trusted": "Trusted",
 	"Type": "Type",
 	"Unable_to_load_the_transaction": "Unable to load the transaction, double check that the hash is correct and try again!",
-	"Unknown": "Unknown",
 	"Unlock": "Unlock",
 	"Unlock_Wallet": "Unlock Wallet",
 	"Update": "Update",
@@ -209,5 +205,11 @@
 	"welcome_back": "Welcome back!",
 	"welcome_to_vault": "Welcome to NinjaVault!",
 	"when_send_nano_you_have_to_receive": "When someone sends you Nano, you are also in charge of performing a receive block to actually receive the funds.",
-	"without_it_unrecoverable": "Without it, any funds you have will become completely unrecoverable!"
+	"without_it_unrecoverable": "Without it, any funds you have will become completely unrecoverable!",
+	"repstatus": {
+		"known": "Known",
+		"unknown": "Unknown",
+		"change": "Change",
+		"trusted": "Trusted"
+	}
 }
