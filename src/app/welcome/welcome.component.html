@@ -3,18 +3,18 @@
     <div uk-grid class="uk-text-center" style="margin-bottom: 90px;">
       <div class="uk-width-1-1" style="margin-top: 45px;">
         <h2>{{ 'welcome_to_vault' | translate }}</h2>
-        <span class="uk-text-lead">The "no strings attached" open source wallet for <a href="https://nano.org" class="uk-link-text" target="_blank">Nano</a></span><br>
+        <span class="uk-text-lead" [innerHTML]="'the_no_strings_attached_wallet' | translate"></span><br>
       </div>
       <div class="uk-width-1-1" *ngIf="!wallet.seed">
         <div uk-grid>
           <div class="uk-width-1-1" style="margin-top: 60px;">
-            <span class="uk-text-small">To get started, choose an option below to configure your wallet</span>
+            <span class="uk-text-small">{{ 'choose_option_configure_wallet' | translate }}</span>
           </div>
           <div class="uk-width-1-2@m">
-            <button routerLink="/configure-wallet" class="uk-button uk-button-primary uk-button-large">Create A New Wallet</button>
+            <button routerLink="/configure-wallet" class="uk-button uk-button-primary uk-button-large">{{ 'create_wallet' | translate }}</button>
           </div>
           <div class="uk-width-1-2@m">
-            <button routerLink="/configure-wallet" [queryParams]="{ import: 1}" class="uk-button uk-button-primary uk-button-large">Import An Existing Wallet</button>
+            <button routerLink="/configure-wallet" [queryParams]="{ import: 1}" class="uk-button uk-button-primary uk-button-large">{{ 'import_wallet' | translate }}</button>
           </div>
         </div>
       </div>
@@ -22,10 +22,10 @@
       <div class="uk-width-1-1" *ngIf="wallet.seed">
         <div uk-grid>
           <div class="uk-width-1-1" style="margin-top: 60px;">
-            <span class="uk-text-small">Welcome back!  It looks like your wallet is already configured.</span>
+            <span class="uk-text-small">{{ 'welcome_back' | translate }} {{ 'wallet_already_configured' | translate }}</span>
           </div>
           <div class="uk-width-1-1@m">
-            <button routerLink="/accounts" class="uk-button uk-button-primary uk-button-large">View My Accounts</button>
+            <button routerLink="/accounts" class="uk-button uk-button-primary uk-button-large">{{ 'View_My_Accounts' | translate }}</button>
           </div>
         </div>
       </div>
@@ -40,21 +40,21 @@
             <ul uk-accordion="">
               <li class="uk-open">
 
-                <a class="uk-accordion-title uk-link-text" href="#">Why Use NinjaVault?</a>
+                <a class="uk-accordion-title uk-link-text" href="#">{{ 'Why_Use_NinjaVault' | translate }}</a>
                 <div class="uk-accordion-content">
                   <!--NanoVault is an open source web wallet which makes it incredibly easy to send and receive <a href="https://nano.org" target="_blank">Nano</a> from anywhere in the world.<br>-->
 
                   <dl class="uk-description-list">
-                    <dt>My Nano Ninja built in</dt>
-                    <dd>Representative lists, scores and many more is directly integrated! For more information visit <a href="https://mynano.ninja">MyNano.Ninja</a>.</dd>
-                    <dt>Security Focused</dt>
-                    <dd>All sensitive operations happen in your browser only - your seed and private keys are never sent across your network, or stored on any server in any format. (So there is no need for server-based authentication measures such as 2FA)</dd>
-                    <dt>"No Strings Attached" Wallet</dt>
-                    <dd>Because no information is ever stored on a server, there is no account to login to or email address required. Create as many wallets as you want and switch between them easily.</dd>
-                    <dt>Any Device, Anywhere</dt>
-                    <dd>Send and receive Nano from any device using the web wallet, or <a href="https://github.com/BitDesert/nanovault/releases" target="_blank">download the desktop wallet</a> available for Windows/Mac/Linux.</dd>
-                    <dt>Helpful Features</dt>
-                    <dd>Store labels for your friends and your own accounts in the address book, track your balances in your local currency, and more!</dd>
+                    <dt>{{ 'my_nano_ninja_header' | translate }}</dt>
+                    <dd>{{ 'my_nano_ninja_text' | translate }}</dd>
+                    <dt>{{ 'security_header' | translate }}</dt>
+                    <dd>{{ 'security_text' | translate }}</dd>
+                    <dt>{{ 'no_strings_attached_header' | translate }}</dt>
+                    <dd>{{ 'no_strings_attached_text' | translate }}</dd>
+                    <dt>{{ 'any_device_header' | translate }}</dt>
+                    <dd>{{ 'any_device_text' | translate }}</dd>
+                    <dt>{{ 'helpful_features_header' | translate }}</dt>
+                    <dd>{{ 'helpful_features_text' | translate }}</dd>
                   </dl>
                 </div>
               </li>

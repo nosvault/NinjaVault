@@ -1,3 +1,21 @@
 {
-	"welcome_to_vault": "Welcome to NinjaVault!"
+	"welcome_to_vault": "Welcome to NinjaVault!",
+	"the_no_strings_attached_wallet": "The \"no strings attached\" open source wallet for <a href=\"https://nano.org\" class=\"uk-link-text\" target=\"_blank\">Nano</a>",
+	"choose_option_configure_wallet": "To get started, choose an option below to configure your wallet",
+	"create_wallet": "Create A New Wallet",
+	"import_wallet": "Import An Existing Wallet",
+	"welcome_back": "Welcome back!",
+	"wallet_already_configured": "It looks like your wallet is already configured.",
+	"View_My_Accounts": "View My Accounts",
+	"Why_Use_NinjaVault": "Why Use NinjaVault?",
+	"my_nano_ninja_header": "My Nano Ninja built in",
+	"my_nano_ninja_text": "Representative lists, scores and many more is directly integrated! For more information visit <a href=\"https://mynano.ninja\">MyNano.Ninja</a>.",
+	"security_header": "Security Focused",
+	"security_text": "All sensitive operations happen in your browser only - your seed and private keys are never sent across your network, or stored on any server in any format. (So there is no need for server-based authentication measures such as 2FA)",
+	"no_strings_attached_header": "\"No Strings Attached\" Wallet",
+	"no_strings_attached_text": "Because no information is ever stored on a server, there is no account to login to or email address required. Create as many wallets as you want and switch between them easily.",
+	"any_device_header": "Any Device, Anywhere",
+	"any_device_text": "Send and receive Nano from any device using the web wallet, or <a href=\"https://github.com/BitDesert/nanovault/releases\" target=\"_blank\">download the desktop wallet</a> available for Windows/Mac/Linux.",
+	"helpful_features_header": "Helpful Features",
+	"helpful_features_text": "Store labels for your friends and your own accounts in the address book, track your balances in your local currency, and more!"
 }
