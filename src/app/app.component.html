@@ -32,25 +32,25 @@
 
       <ul class="uk-nav uk-nav-default uk-nav-parent-icon left-nav" uk-nav>
         <li routerLink="/accounts" routerLinkActive="uk-active"><a routerLink="/accounts" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">Accounts</a></li>
-        <li><a routerLink="/send" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">Send</a></li>
+        <li><a routerLink="/send" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">{{ 'send' | translate }}</a></li>
         <li *ngIf="wallet.pending.gt(0)">
           <div uk-grid>
             <div class="uk-width-3-4">
-              <a routerLink="/receive" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">Receive</a>
+              <a routerLink="/receive" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">{{ 'receive' | translate }}</a>
             </div>
             <div class="uk-width-1-4 uk-text-center">
-              <span *ngIf="wallet.pending.gt(0)" class="uk-badge uk-text-top" style="font-size: 16px; padding-bottom: 2px;">New</span>
+              <span *ngIf="wallet.pending.gt(0)" class="uk-badge uk-text-top" style="font-size: 16px; padding-bottom: 2px;">{{ 'new' | translate }}</span>
             </div>
           </div>
         </li>
-        <li><a routerLink="/address-book" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">Address Book</a></li>
+        <li><a routerLink="/address-book" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">{{ 'Address_Book' | translate }}</a></li>
         <li class="uk-parent">
-          <a href="#" class="uk-margin-left">Settings</a>
+          <a href="#" class="uk-margin-left">{{ 'settings' | translate }}</a>
           <ul class="uk-nav-sub">
-            <li><a routerLink="/representatives" routerLinkActive="active" class="uk-margin-left">Representatives</a></li>
-            <li><a routerLink="/configure-app" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">App Settings</a></li>
-            <li><a routerLink="/manage-wallet" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">Manage Wallet</a></li>
-            <li><a routerLink="/configure-wallet" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">Configure New Wallet</a></li>
+            <li><a routerLink="/representatives" routerLinkActive="active" class="uk-margin-left">{{ 'representatives' | translate }}</a></li>
+            <li><a routerLink="/configure-app" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">{{ 'App_Settings' | translate }}</a></li>
+            <li><a routerLink="/manage-wallet" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">{{ 'Manage_Wallet' | translate }}</a></li>
+            <li><a routerLink="/configure-wallet" routerLinkActive="active" class="uk-margin-left " uk-toggle="target: #mobile-nav">{{ 'Configure_New_Wallet' | translate }}</a></li>
           </ul>
         </li>
       </ul>
@@ -107,14 +107,14 @@
             </div>
 
             <div style="display: inline-block; text-align: right;" class="uk-text-truncate">
-              <span class="balance-text" style="display: inline-block; text-align: left; float: left; margin-top: 5px;">Balance </span>
+              <span class="balance-text" style="display: inline-block; text-align: left; float: left; margin-top: 5px;">{{ 'Balance' | translate }} </span>
               <span class="" style="margin-left: 11px; color: #62a25b; display: inline-block; font-size: 12px;" uk-tooltip title="Last Price: {{ price.price.lastPrice | fiat: settings.settings.displayCurrency }} / NANO">{{ wallet.balanceFiat | fiat: settings.settings.displayCurrency }}</span>
               <span class="balance" [ngClass]="{ 'uk-text-danger': node.status === false, 'uk-text-muted': node.status === null && wallet.seed }" style="clear: left; text-align: left;">{{ wallet.balance | rai: settings.settings.displayDenomination }}</span>
             </div>
 
             <div *ngIf="wallet.pending.gt(0)">
               <div style="display: inline-block; text-align: right;" class="uk-text-muted">
-                <span class="balance-text" style="display: inline-block; text-align: left; float: left; margin-top: 5px;">Pending </span>
+                <span class="balance-text" style="display: inline-block; text-align: left; float: left; margin-top: 5px;">{{ 'Pending' | translate }} </span>
                 <span style="margin-left: 11px; display: inline-block; font-size: 12px;">{{ wallet.pendingFiat | fiat: settings.settings.displayCurrency }}</span>
                 <span class="balance" style="clear: left; text-align: left;">{{ wallet.pending | rai: settings.settings.displayDenomination }}</span>
               </div>
@@ -127,26 +127,26 @@
         <app-wallet-widget></app-wallet-widget>
 
         <ul class="uk-nav uk-nav-default uk-nav-parent-icon left-nav" uk-nav>
-          <li routerLink="/accounts" routerLinkActive="uk-active"><a routerLink="/accounts" routerLinkActive="active" class="uk-margin-left">Accounts</a></li>
-          <li><a routerLink="/send" routerLinkActive="active" class="uk-margin-left">Send</a></li>
+          <li routerLink="/accounts" routerLinkActive="uk-active"><a routerLink="/accounts" routerLinkActive="active" class="uk-margin-left">{{ 'Accounts' | translate }}</a></li>
+          <li><a routerLink="/send" routerLinkActive="active" class="uk-margin-left">{{ 'send' | translate }}</a></li>
           <li *ngIf="wallet.pending.gt(0)">
             <div uk-grid>
               <div class="uk-width-3-4">
-                <a routerLink="/receive" routerLinkActive="active" class="uk-margin-left">Receive</a>
+                <a routerLink="/receive" routerLinkActive="active" class="uk-margin-left">{{ 'receive' | translate }}</a>
               </div>
               <div class="uk-width-1-4 uk-text-center">
-                <span *ngIf="wallet.pending.gt(0)" class="uk-badge uk-text-top uk-align-center" style="font-size: 16px; padding-bottom: 2px;">New</span>
+                <span *ngIf="wallet.pending.gt(0)" class="uk-badge uk-text-top uk-align-center" style="font-size: 16px; padding-bottom: 2px;">{{ 'new' | translate }}</span>
               </div>
             </div>
           </li>
-          <li><a routerLink="/address-book" routerLinkActive="active" class="uk-margin-left">Address Book</a></li>
+          <li><a routerLink="/address-book" routerLinkActive="active" class="uk-margin-left">{{ 'Address_Book' | translate }}</a></li>
           <li class="uk-parent">
-            <a href="#" class="uk-margin-left">Settings</a>
+            <a href="#" class="uk-margin-left">{{ 'settings' | translate }}</a>
             <ul class="uk-nav-sub">
-              <li><a routerLink="/representatives" routerLinkActive="active" class="uk-margin-left">Representatives</a></li>
-              <li><a routerLink="/configure-app" routerLinkActive="active" class="uk-margin-left">App Settings</a></li>
-              <li><a routerLink="/manage-wallet" routerLinkActive="active" class="uk-margin-left">Manage Wallet</a></li>
-              <li><a routerLink="/configure-wallet" routerLinkActive="active" class="uk-margin-left">Configure New Wallet</a></li>
+              <li><a routerLink="/representatives" routerLinkActive="active" class="uk-margin-left">{{ 'representatives' | translate }}</a></li>
+              <li><a routerLink="/configure-app" routerLinkActive="active" class="uk-margin-left">{{ 'App_Settings' | translate }}</a></li>
+              <li><a routerLink="/manage-wallet" routerLinkActive="active" class="uk-margin-left">{{ 'Manage_Wallet' | translate }}</a></li>
+              <li><a routerLink="/configure-wallet" routerLinkActive="active" class="uk-margin-left">{{ 'Configure_New_Wallet' | translate }}</a></li>
             </ul>
           </li>
         </ul>

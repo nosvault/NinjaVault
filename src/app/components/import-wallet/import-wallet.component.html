@@ -1,22 +1,25 @@
 <div class="uk-animation-slide-left-small" uk-grid>
   <div class="uk-width-1-1">
-    <h2>Import Wallet</h2>
+    <h2>{{ 'Import_Wallet' | translate }}</h2>
 
     <div class="uk-card uk-card-default uk-margin" *ngIf="activePanel == 'error'">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">Bad Import Data</h3>
+        <h3 class="uk-card-title">{{ 'Bad_Import_Data' | translate }}</h3>
       </div>
       <div class="uk-card-body">
-        <p>There was an issue reading the import data for your wallet.  Double check the address and try again.</p>
+        <p>
+          {{ 'issue_reading_import_data_wallet' | translate }} 
+          {{ 'double_check_address' | translate }}
+        </p>
       </div>
     </div>
 
     <div class="uk-card uk-card-default uk-margin" *ngIf="activePanel == 'import'">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">Confirm Wallet Password</h3>
+        <h3 class="uk-card-title">{{ 'Confirm_Wallet_Password' | translate }}</h3>
       </div>
       <div class="uk-card-body">
-        <p>Almost finished - just enter your wallet password to decrypt your wallet!</p>
+        <p>{{ 'almost_finished_wallet_password' | translate }}</p>
         <div uk-grid>
           <div class="uk-width-1-1">
             <input class="uk-input" [(ngModel)]="walletPassword" placeholder="Wallet Password" type="password">
@@ -24,19 +27,19 @@
         </div>
       </div>
       <div class="uk-card-footer uk-text-right">
-        <button (click)="decryptWallet()" class="uk-button uk-button-secondary">Import Wallet</button>
+        <button (click)="decryptWallet()" class="uk-button uk-button-secondary">{{ 'Import_Wallet' | translate }}</button>
       </div>
     </div>
 
     <div class="uk-card uk-card-default uk-margin" *ngIf="activePanel == 'imported'">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">Wallet Imported</h3>
+        <h3 class="uk-card-title">{{ 'Wallet_Imported' | translate }}</h3>
       </div>
       <div class="uk-card-body">
-        <p>Your wallet has been successfully imported!</p>
+        <p>{{ 'wallet_import_success' | translate }}</p>
       </div>
       <div class="uk-card-footer uk-text-right">
-        <button routerLink="/accounts" class="uk-button uk-button-secondary">View Accounts</button>
+        <button routerLink="/accounts" class="uk-button uk-button-secondary">{{ 'View_Accounts' | translate }}</button>
       </div>
     </div>
 

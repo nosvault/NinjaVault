@@ -1,10 +1,10 @@
 <div class="uk-animation-slide-left-small" uk-grid>
   <div class="uk-width-1-1">
     <div uk-grid>
-      <div class="uk-width-1-2"><h2>Accounts</h2></div>
+      <div class="uk-width-1-2"><h2>{{ 'Accounts' | translate }}</h2></div>
       <div class="uk-width-1-2 uk-text-right">
         <button class="uk-button uk-button-secondary" (click)="createAccount()">
-          Add New Account
+          {{ 'Add_New_Account' | translate }}
         </button>
       </div>
     </div>
@@ -13,8 +13,8 @@
       <table class="uk-table uk-table-striped uk-table-small">
         <thead>
         <tr>
-          <th class="uk-width-3-5@m uk-width-1-2">Account</th>
-          <th class="uk-width-1-5@m uk-width-1-4 uk-text-right">Balance</th>
+          <th class="uk-width-3-5@m uk-width-1-2">{{ 'Account' | translate }}</th>
+          <th class="uk-width-1-5@m uk-width-1-4 uk-text-right">{{ 'Balance' | translate }}</th>
           <th class="uk-width-1-5@m uk-width-1-4 uk-text-right"></th>
         </tr>
         </thead>
@@ -59,13 +59,13 @@
           </td>
         </tr>
         <tr *ngIf="!(accounts).length">
-          <td colspan="4" style="text-align: center;">You don't have any accounts yet, <a (click)="createAccount()">click here to create one</a></td>
+          <td colspan="4" style="text-align: center;">{{ 'You_dont_have_any_accounts_yet' | translate }} <a (click)="createAccount()">{{ 'Click_here_to_create_one!' | translate }}</a></td>
         </tr>
         </tbody>
       </table>
     </div>
 
-    <p class="uk-text-center uk-text-small">Click on an account to view more details!</p>
+    <p class="uk-text-center uk-text-small">{{ 'Click_on_an_account_to_view_more_details' | translate }}</p>
 
 
   </div>

@@ -2,14 +2,14 @@
   <div class="uk-width-1-1" id="address-book-sortable">
     <div uk-grid>
       <div class="uk-width-1-2">
-        <h2>Address Book</h2>
+        <h2>{{ 'Address_Book' | translate }}</h2>
       </div>
       <div class="uk-width-1-2 uk-text-right">
-        <button class="uk-button uk-button-secondary" (click)="activePanel = 1;">Add New Contact</button>
+        <button class="uk-button uk-button-secondary" (click)="activePanel = 1;">{{ 'Add_New_Contact' | translate }}</button>
       </div>
     </div>
     <p>
-      You can use the address book to store a label for your own accounts and others you frequently transact with, which are visible throughout the application.
+      {{ 'use_address_book_store_label' | translate }}
     </p>
 
 
@@ -20,9 +20,9 @@
           <ul class="uk-list uk-list-striped" style="margin-bottom: 0;">
             <li style="background: #fff; border-bottom: 0;">
               <div uk-grid style="color: #999; text-transform: uppercase; font-size: .875rem; font-weight: 400;">
-                <div class="uk-width-2-5">Name</div>
-                <div class="uk-width-expand">Account ID</div>
-                <div class="uk-width-1-6 uk-text-center" style="padding-left: 0;">Options</div>
+                <div class="uk-width-2-5">{{ 'Name' | translate }}</div>
+                <div class="uk-width-expand">{{ 'Account_ID' | translate }}</div>
+                <div class="uk-width-1-6 uk-text-center" style="padding-left: 0;">{{ 'Options' | translate }}</div>
               </div>
             </li>
           </ul>
@@ -72,19 +72,19 @@
       <div class="uk-width-1-1">
         <div class="uk-card uk-card-default">
           <div class="uk-card-header">
-            <h2 class="uk-card-title">Create New Contact</h2>
+            <h2 class="uk-card-title">{{ 'Create_New_Contact' | translate }}</h2>
           </div>
           <div class="uk-card-body">
             <div class="uk-form-horizontal">
               <div class="uk-margin">
-                <label class="uk-form-label" for="new-address-account">Account ID</label>
+                <label class="uk-form-label" for="new-address-account">{{ 'Account_ID' | translate }}</label>
                 <div class="uk-form-controls">
                   <input type="text" class="uk-input" id="new-address-account" [(ngModel)]="newAddressAccount" placeholder="xrb_abc123">
                 </div>
               </div>
 
               <div class="uk-margin">
-                <label class="uk-form-label" for="new-address-name">Name</label>
+                <label class="uk-form-label" for="new-address-name">{{ 'Name' | translate }}</label>
                 <div class="uk-form-controls">
                   <input type="text" class="uk-input" id="new-address-name" [(ngModel)]="newAddressName" (keyup.enter)="saveNewAddress()" placeholder="Exchange Deposit Address, Main Trading Account, etc">
                 </div>
@@ -94,10 +94,10 @@
           <div class="uk-card-footer">
             <div uk-grid>
               <div class="uk-width-1-2@s uk-text-left">
-                <button class="uk-button uk-button-danger uk-width-1-1" (click)="cancelNewAddress()">Cancel</button>
+                <button class="uk-button uk-button-danger uk-width-1-1" (click)="cancelNewAddress()">{{ 'Cancel' | translate }}</button>
               </div>
               <div class="uk-width-1-2@s uk-text-right">
-                <button class="uk-button uk-button-primary uk-width-1-1" (click)="saveNewAddress()">Save New Contact</button>
+                <button class="uk-button uk-button-primary uk-width-1-1" (click)="saveNewAddress()">{{ 'Save' | translate }}</button>
               </div>
             </div>
           </div>

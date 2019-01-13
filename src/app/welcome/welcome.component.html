@@ -70,21 +70,21 @@
 
         <div class="uk-card uk-card-small uk-card-default uk-margin uk-width-1-1">
           <div class="uk-card-body uk-text-center">
-            NanoVault is open source and all code is available at <a href="https://github.com/BitDesert/nanovault" target="_blank">https://github.com/BitDesert/nanovault</a>.<br>
-            Please submit any feedback or bug reports on our GitHub page.  Thank you for using NanoVault!
+            {{ 'open_source_available_at' | translate }}<br>
+            {{ 'please_submit_bugs_github' | translate }}  {{ 'thank_you_for_using_vault' | translate }}
           </div>
         </div>
 
         <div class="uk-width-1-1">
           <div class="uk-text-center uk-alert uk-alert-primary" uk-alert>
             <a class="uk-alert-close" uk-close></a>
-            <strong>Don't have any Nano, but want to see how quick and easy it is to use?</strong><br>
-            Use the <a href="https://nanofaucet.org/" target="_blank">Nano Faucet</a> with your NanoVault account to get going instantly!
+            <strong>{{ 'dont_have_nano' | translate }}</strong><br>
+            {{ 'use_the_faucet' | translate }}
           </div>
         </div>
 
         <div class="uk-text-center uk-text-small uk-text-truncate">
-          Donation Address: <a [routerLink]="'/send'" [queryParams]="{ to: donationAccount }">{{ donationAccount }}</a>
+          {{ 'donation_address' | translate }}: <a [routerLink]="'/send'" [queryParams]="{ to: donationAccount }">{{ donationAccount }}</a>
         </div>
       </div>
     </div>

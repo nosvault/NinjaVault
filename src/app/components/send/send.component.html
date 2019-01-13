@@ -1,6 +1,6 @@
 <div uk-grid>
   <div class="uk-width-1-1">
-    <h2>Send Nano</h2>
+    <h2>{{ 'Send_Nano' | translate }}</h2>
 
     <!-- Send Panel -->
     <div uk-grid *ngIf="activePanel == 'send'" class="uk-animation-slide-left-small">
@@ -12,7 +12,7 @@
 
 
               <div class="uk-margin">
-                <label class="uk-form-label" for="form-horizontal-select">From Account</label>
+                <label class="uk-form-label" for="form-horizontal-select">{{ 'From_Account' | translate }}</label>
                 <div class="uk-form-controls">
                   <select class="uk-select" [(ngModel)]="fromAccountID" (change)="resetRaw()" id="form-horizontal-select">
                     <option *ngFor="let account of accounts" [value]="account.id">{{ account.addressBookName ? account.addressBookName + ' - ' : '' }} {{ account.id | squeeze }} ({{ account.balance | rai: settings.settings.displayDenomination }})</option>
@@ -21,7 +21,7 @@
               </div>
 
               <div class="uk-margin">
-                <label class="uk-form-label" for="form-horizontal-text2">To Account</label>
+                <label class="uk-form-label" for="form-horizontal-text2">{{ 'To_Account' | translate }}</label>
                 <div class="uk-form-controls">
                   <div class="uk-inline uk-width-1-1">
                     <span class="uk-form-icon uk-form-icon-flip" *ngIf="toAccountStatus === 0" uk-icon="icon: warning"></span>
@@ -30,7 +30,7 @@
 
                     <div *ngIf="(addressBookResults$ | async).length" [hidden]="!showAddressBook" class="uk-animation-slide-down-small uk-width-1-1 uk-card uk-card-default uk-card-body uk-position-absolute" style="z-index: 15000">
                       <ul class="uk-nav uk-nav-default">
-                        <li class="uk-nav-header">Address Book Results</li>
+                        <li class="uk-nav-header">{{ 'Address_Book_Results' | translate }}</li>
                         <li class="uk-nav-divider"></li>
                         <li *ngFor="let book of addressBookResults$ | async">
                           <a (click)="selectBookEntry(book.account)">{{ book.name }}</a>
@@ -49,12 +49,12 @@
 
               <div uk-grid>
                 <div class="uk-width-1-1">
-                  <label class="uk-form-label" for="form-horizontal-text">Amount</label>
+                  <label class="uk-form-label" for="form-horizontal-text">{{ 'Amount' | translate }}</label>
                   <div class="uk-form-controls">
                     <div uk-grid>
                       <div class="uk-width-3-5">
                         <div class="uk-inline uk-width-1-1">
-                          <a class="uk-form-icon uk-form-icon-flip" (click)="setMaxAmount()" style="padding-right: 7px;" uk-tooltip title="Set Maximum Amount">Max</a>
+                          <a class="uk-form-icon uk-form-icon-flip" (click)="setMaxAmount()" style="padding-right: 7px;" uk-tooltip title="Set Maximum Amount">{{ 'Max' | translate }}</a>
                           <input [(ngModel)]="amount" class="uk-input" id="form-horizontal-text" (keyup)="syncFiatPrice()" (change)="syncFiatPrice()" type="text" placeholder="Amount of {{ selectedAmount.name }} to send">
                         </div>
 
@@ -71,7 +71,7 @@
                       </div>
 
                       <div *ngIf="amountRaw.gt(0)" class="uk-width-1-1 uk-width-3-5@m uk-text-center uk-text-small uk-text-muted uk-margin-remove">
-                        +{{ amountRaw.toString(10) }} raw &nbsp; <a (click)="resetRaw()">remove</a>
+                        +{{ amountRaw.toString(10) }} raw &nbsp; <a (click)="resetRaw()">{{ 'remove' | translate }}</a>
                       </div>
 
                       <div class="uk-width-1-1 uk-width-3-5@s" style="margin-top: 10px;" *ngIf="settings.settings.displayCurrency">
@@ -90,7 +90,7 @@
             </div>
           </div>
           <div class="uk-card-footer">
-            <button class="uk-button uk-button-primary uk-width-1-1" type="button" (click)="sendTransaction()">Send Nano</button>
+            <button class="uk-button uk-button-primary uk-width-1-1" type="button" (click)="sendTransaction()">{{ 'Send_Nano' | translate }}</button>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
     <div uk-grid *ngIf="activePanel == 'confirm'" class="uk-animation-slide-left">
       <div class="uk-width-1-1">
         <div class="uk-card uk-card-default uk-width-1-1 uk-text-center">
-          <span style="display: block; padding-top: 8px;">You are about to send</span>
+          <span style="display: block; padding-top: 8px;">{{ 'You_are_about_to_send' | translate }}</span>
           <span style="display:block; font-size: 32px;">{{ rawAmount | rai: 'mnano' }}</span>
           <span style="display:block; font-size: 12px;" *ngIf="amountRaw.gt(0)">+{{ amountRaw.toString(10) }} raw</span>
           <span style="display:block; font-size: 16px; padding-bottom: 5px;" *ngIf="settings.settings.displayCurrency">{{ amountFiat | fiat: settings.settings.displayCurrency }} @ {{ price.price.lastPrice | fiat: settings.settings.displayCurrency }} / NANO</span>
@@ -115,12 +115,12 @@
                 <span class="confirm-title uk-text-truncate">
                   <div *ngIf="fromAddressBook">
                     <span class="confirm-title">{{ fromAddressBook }}</span>
-                    <span class="confirm-subtitle">From Account</span>
+                    <span class="confirm-subtitle">{{ 'From_Account' | translate }}</span>
                     <span class="uk-text-small uk-text-truncate">{{ fromAccountID | squeeze }}</span>
                   </div>
                   <div *ngIf="!fromAddressBook">
                     <span class="confirm-title uk-text-truncate">{{ fromAccountID | squeeze }}</span>
-                    <span class="confirm-subtitle">From Account</span>
+                    <span class="confirm-subtitle">{{ 'From_Account' | translate }}</span>
                     <br class="br-spacer" />
                   </div>
                 </span>
@@ -129,7 +129,7 @@
                 <div uk-grid>
                   <div class="uk-width-1-2 uk-text-muted">
                     <span class="confirm-currency">{{ fromAccount.balance || 0 | rai: 'mnano'}}</span>
-                    <span class="confirm-subtitle">Current Balance</span>
+                    <span class="confirm-subtitle">{{ 'Current_Balance' | translate }}</span>
                   </div>
                   <div class="uk-width-1-2 uk-text-right">
                     <span class="confirm-currency uk-text-danger">-{{ rawAmount | rai: 'mnano' }}</span>
@@ -146,12 +146,12 @@
                 <span class="confirm-title uk-text-truncate">
                   <div *ngIf="toAddressBook">
                     <span class="confirm-title">{{ toAddressBook }}</span>
-                    <span class="confirm-subtitle">To Account</span>
+                    <span class="confirm-subtitle">{{ 'To_Account' | translate }}</span>
                     <span class="uk-text-small uk-text-truncate">{{ toAccountID | squeeze }}</span>
                   </div>
                   <div *ngIf="!toAddressBook">
                     <span class="confirm-title uk-text-truncate">{{ toAccountID | squeeze }}</span>
-                    <span class="confirm-subtitle">To Account</span>
+                    <span class="confirm-subtitle">{{ 'To_Account' | translate }}</span>
                     <br class="br-spacer" />
                   </div>
                 </span>
@@ -160,7 +160,7 @@
                 <div uk-grid>
                   <div class="uk-width-1-2 uk-text-muted">
                     <span class="confirm-currency">{{ toAccount.balance || 0 | rai: 'mnano'}}</span>
-                    <span class="confirm-subtitle">Current Balance</span>
+                    <span class="confirm-subtitle">{{ 'Current_Balance' | translate }}</span>
                   </div>
                   <div class="uk-width-1-2 uk-text-right">
                     <span class="confirm-currency uk-text-success">+{{ rawAmount | rai: 'mnano' }}</span>
@@ -173,11 +173,11 @@
 
         <div uk-grid>
           <div class="uk-width-1-2@s">
-            <button (click)="activePanel = 'send'" class="uk-button uk-button-danger uk-width-1-1">Cancel</button>
+            <button (click)="activePanel = 'send'" class="uk-button uk-button-danger uk-width-1-1">{{ 'Cancel' | translate }}</button>
           </div>
           <div class="uk-width-1-2@s">
-            <button *ngIf="!confirmingTransaction" class="uk-button uk-button-primary uk-width-1-1" (click)="confirmTransaction()">Confirm & Send</button>
-            <button *ngIf="confirmingTransaction" class="uk-button uk-button-primary uk-disabled uk-width-1-1"><span class="uk-margin-right" uk-spinner></span> Loading</button>
+            <button *ngIf="!confirmingTransaction" class="uk-button uk-button-primary uk-width-1-1" (click)="confirmTransaction()">{{ 'Confirm_Send' | translate }}</button>
+            <button *ngIf="confirmingTransaction" class="uk-button uk-button-primary uk-disabled uk-width-1-1"><span class="uk-margin-right" uk-spinner></span> {{ 'Loading' | translate }}</button>
           </div>
         </div>
       </div>

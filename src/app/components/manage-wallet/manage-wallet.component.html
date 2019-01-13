@@ -1,10 +1,10 @@
 <div class="uk-animation-slide-left-small" uk-grid>
   <div class="uk-width-1-1">
-    <h2>Manage Wallet</h2>
+    <h2>{{ 'Manage_Wallet' | translate }}</h2>
 
     <div class="uk-card uk-card-default uk-margin" *ngIf="!walletService.isLedgerWallet()">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">Change Wallet Password</h3>
+        <h3 class="uk-card-title">{{ 'Change_Wallet_Password' | translate }}</h3>
       </div>
       <div class="uk-card-body">
         <div uk-grid>
@@ -17,33 +17,34 @@
         </div>
       </div>
       <div class="uk-card-footer uk-text-right">
-        <button (click)="changePassword()" class="uk-button uk-button-secondary">Update Password</button>
+        <button (click)="changePassword()" class="uk-button uk-button-secondary">{{ 'Update_Password' | translate }}</button>
       </div>
     </div>
 
     <div class="uk-card uk-card-default uk-margin" *ngIf="!walletService.isLedgerWallet()">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">Backup Wallet</h3>
+        <h3 class="uk-card-title">{{ 'Backup_Wallet' | translate }}</h3>
       </div>
       <div class="uk-card-body">
         <p *ngIf="wallet.locked">
-          To access backup options, unlock your wallet.
+          {{ 'backup_unlock_wallet' | translate }}
         </p>
         <p *ngIf="!wallet.locked">
-          To backup your wallet mnemonic phrase, <a title="Copy Mnemonic To Clipboard" ngxClipboard [cbContent]="seedMnemonic()" (cbOnSuccess)="notifications.sendSuccess('Wallet mnemonic copied to clipboard!')" uk-tooltip>click here</a> to copy it to your clipboard.<br>
+          {{ 'to_backup_mnemonic_clipboard' | translate }} <a title="Copy Mnemonic To Clipboard" ngxClipboard [cbContent]="seedMnemonic()" (cbOnSuccess)="notifications.sendSuccess('Wallet mnemonic copied to clipboard!')" uk-tooltip>{{ 'Click_here' | translate }}</a><br>
           <br>
-          To backup your wallet seed, <a title="Copy Seed To Clipboard" ngxClipboard [cbContent]="wallet.seed" (cbOnSuccess)="notifications.sendSuccess('Wallet seed copied to clipboard!')" uk-tooltip>click here</a> to copy it to your clipboard.<br>
+          {{ 'to_backup_seed_clipboard' | translate }} <a title="Copy Seed To Clipboard" ngxClipboard [cbContent]="wallet.seed" (cbOnSuccess)="notifications.sendSuccess('Wallet seed copied to clipboard!')" uk-tooltip>{{ 'Click_here' | translate }}</a><br>
         </p>
       </div>
     </div>
 
     <div class="uk-card uk-card-default uk-margin" *ngIf="!walletService.isLedgerWallet()">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">Export NanoVault Wallet</h3>
+        <h3 class="uk-card-title">{{ 'Export_NanoVault_Wallet' | translate }}</h3>
       </div>
       <div class="uk-card-body">
-        Use this export tool to simplify wallet transfer to other devices. Your data will be encrypted by your password, and then imported into NanoVault on your new device!
-        The export does not contain your address book.<br>
+        {{ 'use_this_simplify_transfer' | translate }} 
+        {{ 'data_encrypted_and_imported' | translate }}
+        {{ 'export_no_address_book' | translate }}<br>
         <div *ngIf="showQRExport" uk-grid>
           <div class="uk-width-1-1">
             <hr class="uk-divider-icon">
@@ -53,27 +54,28 @@
             <img [src]="QRExportImg">
           </div>
           <div class="uk-width-1-2@s uk-width-3-4@m">
-            Scan the QR code on any device to load your NanoVault wallet!<br>
+            {{ 'scan_qr_to_load_wallet' | translate }}<br>
             <br>
-            If you do not have a QR code scanner, you can also import your wallet by using the URL below.<br>
+            {{ 'if_no_qr_scanner_import_url' | translate }}<br>
             <input type="text" class="uk-input" value="{{ QRExportUrl }}"><br>
-            <a title="Copy Export URL To Clipboard" ngxClipboard [cbContent]="QRExportUrl" (cbOnSuccess)="notifications.sendSuccess('Wallet export copied to clipboard!')" uk-tooltip>Copy to clipboard</a>
+            <a title="Copy Export URL To Clipboard" ngxClipboard [cbContent]="QRExportUrl" (cbOnSuccess)="notifications.sendSuccess('Wallet export copied to clipboard!')" uk-tooltip>{{ 'Copy_to_clipboard' | translate }}</a>
           </div>
         </div>
       </div>
       <div class="uk-card-footer uk-text-right">
-        <button (click)="exportToFile()" class="uk-button uk-button-secondary">Export As File</button>
-        <button (click)="exportWallet()" class="uk-button uk-button-secondary">Export QR Code</button>
+        <button (click)="exportToFile()" class="uk-button uk-button-secondary">{{ 'Export_As_File' | translate }}</button>
+        <button (click)="exportWallet()" class="uk-button uk-button-secondary">{{ 'Export_QR_Code' | translate }}</button>
       </div>
     </div>
 
     <div class="uk-card uk-card-default uk-margin">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">NanoVault Address Book</h3>
+        <h3 class="uk-card-title">{{ 'Address_Book' | translate }}</h3>
       </div>
       <div class="uk-card-body">
-        Use this tool to simplify transferring your address book between devices.  Use the options below to import or export your
-        address book from a file or QR Code/URL.  Your address book is not encrypted by your wallet password.
+        {{ 'use_this_transfer_address_book' | translate }} 
+        {{ 'use_options_import_export_address_book' | translate }}
+        {{ 'address_book_not_encrypted' | translate }}
         <div *ngIf="addressBookShowQRExport" uk-grid>
           <div class="uk-width-1-1">
             <hr class="uk-divider-icon">
@@ -83,21 +85,21 @@
             <img [src]="addressBookQRExportImg">
           </div>
           <div class="uk-width-1-2@s uk-width-3-4@m">
-            Scan the QR code on any device to import your NanoVault Address Book!<br>
+            {{ 'scan_qr_to_load_address_book' | translate }}<br>
             <br>
-            If you do not have a QR code scanner, you can also import your address book by using the URL below.<br>
+            {{ 'if_no_qr_scanner_import_address_book_url' | translate }}<br>
             <input type="text" class="uk-input" value="{{ addressBookQRExportUrl }}"><br>
-            <a title="Copy Export URL To Clipboard" ngxClipboard [cbContent]="addressBookQRExportUrl" (cbOnSuccess)="notifications.sendSuccess('Address book export copied to clipboard!')" uk-tooltip>Copy to clipboard</a>
+            <a title="Copy Export URL To Clipboard" ngxClipboard [cbContent]="addressBookQRExportUrl" (cbOnSuccess)="notifications.sendSuccess('Address book export copied to clipboard!')" uk-tooltip>{{ 'Copy_to_clipboard' | translate }}</a>
           </div>
         </div>
       </div>
       <div class="uk-card-footer uk-text-right">
         <div class="js-upload uk-text-left" style="display: inline-block;" uk-form-custom>
           <input type="file" id="import-from-file" (change)="importFromFile($event.target.files)" multiple>
-          <button class="uk-button uk-button-primary" type="button" tabindex="-1">Import Address Book</button>
+          <button class="uk-button uk-button-primary" type="button" tabindex="-1">{{ 'Import_Address_Book' | translate }}</button>
         </div>
-        <button (click)="exportAddressBookToFile()" class="uk-button uk-button-secondary">Export As File</button>
-        <button (click)="exportAddressBook()" class="uk-button uk-button-secondary">Export QR Code</button>
+        <button (click)="exportAddressBookToFile()" class="uk-button uk-button-secondary">{{ 'Export_As_File' | translate }}</button>
+        <button (click)="exportAddressBook()" class="uk-button uk-button-secondary">{{ 'Export_QR_Code' | translate }}</button>
       </div>
     </div>
 
