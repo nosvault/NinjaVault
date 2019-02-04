@@ -13,7 +13,11 @@ cache:
     - node_modules
 
 before_install:
-  - sudo apt-get install libudev-dev
+  - sudo apt-get update
+  - sudo apt-get install build-essential git -y
+  - sudo apt-get install libudev-dev -y
+  - sudo apt-get install libusb-1.0-0-dev -y
+  - sudo apt-get install gcc-4.8 g++-4.8 -y
 
 script:
   - ng build --prod
