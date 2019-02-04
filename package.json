@@ -106,9 +106,9 @@
       "extendInfo": {
         "CFBundleURLTypes": [
           {
-            "CFBundleURLName": "xrb",
+            "CFBundleURLName": "nos",
             "CFBundleURLSchemes": [
-              "xrb"
+              "nos"
             ]
           }
         ]
@@ -125,9 +125,9 @@
       }
     ],
     "protocols": {
-      "name": "xrb",
+      "name": "nos",
       "schemes": [
-        "xrb"
+        "nos"
       ],
       "role": "Viewer"
     }

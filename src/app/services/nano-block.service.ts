@@ -14,7 +14,7 @@ const nacl = window['nacl'];
 const STATE_BLOCK_PREAMBLE = '0000000000000000000000000000000000000000000000000000000000000006';
 
 @Injectable()
-export class NanoBlockService {
+export class NOSBlockService {
   constructor(
     private api: ApiService,
     private util: UtilService,

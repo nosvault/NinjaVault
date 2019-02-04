@@ -3,9 +3,7 @@ const autoUpdater = require('electron-updater').autoUpdater;
 const url = require('url');
 const path = require('path');
 
-// const TransportNodeHid = require('@ledgerhq/hw-transport-node-hid');
-
-app.setAsDefaultProtocolClient('xrb'); // Register handler for xrb: links
+app.setAsDefaultProtocolClient('nos'); // Register handler for nos: links
 
 console.log(`Starting ledger@!`);
 
@@ -25,16 +23,13 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 1000, height: 600, webPreferences: { webSecurity: false } });
   // const options = { extraHeaders: "pragma: no-cache\n" };
-  // mainWindow.loadURL('https://nanovault.io', options);
-  mainWindow.loadURL('http://localhost:4200/');
-  // mainWindow.loadURL(url.format({
-  //   pathname: path.join(__dirname, 'dist/index.html'),
-  //   protocol: 'file:',
-  //   slashes: true
-  // }));
-
-  // mainWindow.LedgerTransport = TransportU2F;
-  // mainWindow.webContents.
+  // mainWindow.loadURL('https://my.nos.cash', options);
+  // mainWindow.loadURL('http://localhost:4200/');
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'dist/index.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -143,20 +138,20 @@ function getApplicationMenu() {
       submenu: [
         {
           label: 'View GitHub',
-          click () { loadExternal('https://github.com/BitDesert/nanovault') }
+          click () { loadExternal('https://github.com/NOS-Cash/NOSvault') }
         },
         {
           label: 'Submit Issue',
-          click () { loadExternal('https://github.com/BitDesert/nanovault/issues/new') }
+          click () { loadExternal('https://github.com/NOS-Cash/NOSvault/issues/new') }
         },
         {type: 'separator'},
         {
           type: 'normal',
-          label: `NanoVault Version: ${autoUpdater.currentVersion}`,
+          label: `NOSwallet Version: ${autoUpdater.currentVersion}`,
         },
         {
           label: 'View Latest Updates',
-          click () { loadExternal('https://github.com/BitDesert/nanovault/releases') }
+          click () { loadExternal('https://github.com/NOS-Cash/NOSvault/releases') }
         },
         {type: 'separator'},
         {

@@ -5,11 +5,11 @@ Based on [NanoVault by Cronoh](https://github.com/cronoh/nanovault)
 NanoVault is a fully client-side signing wallet for sending and receiving [Nano](https://github.com/nanocurrency/raiblocks) 
 on your [desktop](https://github.com/BitDesert/nanovault/releases) or [in your browser](https://nanovault.io)
 
-![NanoVault Screenshot](https://s3-us-west-2.amazonaws.com/nanovault.io/NanoVault-Preview.png)
+![NOSwallet Screenshot](https://s3-us-west-2.amazonaws.com/my.nos.cash/NOSwallet-Preview.png)
 ___
 
 # Table of Contents
-* [Install](#install-nanovault)
+* [Install](#install-noswallet)
 * [Bugs/Feedback](#bugsfeedback)
 * [Application Structure](#application-structure)
 * [Development Prerequisites](#development-prerequisites)
@@ -20,7 +20,7 @@ ___
 # Install NanoVault
 NanoVault is available on your desktop (Windows/Mac/Linux) - just head over to the [releases section](https://github.com/BitDesert/nanovault/releases) and download the latest version for your OS.
 
-You can also use NanoVault from any device on the web at [nanovault.io](https://nanovault.io)
+You can also use NOSwallet from any device on the web at [my.nos.cash](https://my.nos.cash)
 
 
 # Bugs/Feedback
@@ -108,4 +108,8 @@ Special thanks to the following!
 - [dcposch/blakejs](https://github.com/dcposch/blakejs) - Blake2b Implementation
 - [dchest/tweetnacl-js](https://github.com/dchest/tweetnacl-js) - Cryptography Implementation
 
+<<<<<<< HEAD
 If you have found NanoVault useful and are feeling generous, you can donate at `xrb_1ninja7rh37ehfp9utkor5ixmxyg8kme8fnzc4zty145ibch8kf5jwpnzr3r`
+=======
+If you have found NOSwallet useful and are feeling generous, you can donate at `nos_318syypnqcgdouy3p3ekckwmnmmyk5z3dpyq48phzndrmmspyqdqjymoo8hj`
+>>>>>>> 394debba8128716f1cfa1c2c50451f6f2e769d58

@@ -16,12 +16,12 @@ interface AppSettings {
 
 @Injectable()
 export class AppSettingsService {
-  storeKey = `nanovault-appsettings`;
+  storeKey = `noswallet-appsettings`;
 
   settings: AppSettings = {
-    displayDenomination: 'mnano',
+    displayDenomination: 'nos',
     walletStore: 'localStorage',
-    displayCurrency: 'USD',
+    displayCurrency: '',
     lockOnClose: 1,
     lockInactivityMinutes: 30,
     powSource: 'best',
@@ -66,9 +66,9 @@ export class AppSettingsService {
   clearAppSettings() {
     localStorage.removeItem(this.storeKey);
     this.settings = {
-      displayDenomination: 'mnano',
+      displayDenomination: 'nos',
       walletStore: 'localStorage',
-      displayCurrency: 'USD',
+      displayCurrency: '',
       lockOnClose: 1,
       lockInactivityMinutes: 30,
       powSource: 'best',
