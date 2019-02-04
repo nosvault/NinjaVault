@@ -4,7 +4,7 @@ import {AddressBookService} from "../../services/address-book.service";
 import {ApiService} from "../../services/api.service";
 import {NotificationService} from "../../services/notification.service";
 import {WalletService} from "../../services/wallet.service";
-import {NanoBlockService} from "../../services/nano-block.service";
+import {NOSBlockService} from "../../services/nano-block.service";
 import {AppSettingsService} from "../../services/app-settings.service";
 import {PriceService} from "../../services/price.service";
 import {UtilService} from "../../services/util.service";
@@ -63,7 +63,7 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
     private wallet: WalletService,
     private util: UtilService,
     public settings: AppSettingsService,
-    private nanoBlock: NanoBlockService) { }
+    private nanoBlock: NOSBlockService) { }
 
   async ngOnInit() {
     this.routerSub = this.route.events.subscribe(event => {
@@ -72,8 +72,8 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
       }
     });
     this.priceSub = this.price.lastPrice$.subscribe(event => {
-      this.account.balanceFiat = this.util.nano.rawToMnano(this.account.balance || 0).times(this.price.price.lastPrice).toNumber();
-      this.account.pendingFiat = this.util.nano.rawToMnano(this.account.pending || 0).times(this.price.price.lastPrice).toNumber();
+      this.account.balanceFiat = this.util.nano.rawToNOS(this.account.balance || 0).times(this.price.price.lastPrice).toNumber();
+      this.account.pendingFiat = this.util.nano.rawToNOS(this.account.pending || 0).times(this.price.price.lastPrice).toNumber();
     });
 
     await this.loadAccountDetails();
@@ -113,8 +113,8 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
     // Set fiat values?
     this.account.balanceRaw = new BigNumber(this.account.balance || 0).mod(this.nano);
     this.account.pendingRaw = new BigNumber(this.account.pending || 0).mod(this.nano);
-    this.account.balanceFiat = this.util.nano.rawToMnano(this.account.balance || 0).times(this.price.price.lastPrice).toNumber();
-    this.account.pendingFiat = this.util.nano.rawToMnano(this.account.pending || 0).times(this.price.price.lastPrice).toNumber();
+    this.account.balanceFiat = this.util.nano.rawToNOS(this.account.balance || 0).times(this.price.price.lastPrice).toNumber();
+    this.account.pendingFiat = this.util.nano.rawToNOS(this.account.pending || 0).times(this.price.price.lastPrice).toNumber();
     await this.getAccountHistory(this.accountID);
 
 

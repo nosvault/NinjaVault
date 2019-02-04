@@ -8,7 +8,7 @@ import {MyNanoNinjaService} from "../../services/mynanoninja.service";
 import {AppSettingsService} from "../../services/app-settings.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {NotificationService} from "../../services/notification.service";
-import {NanoBlockService} from "../../services/nano-block.service";
+import {NOSBlockService} from "../../services/nano-block.service";
 
 @Component({
   selector: 'app-representatives',
@@ -38,7 +38,7 @@ export class RepresentativesComponent implements OnInit {
     public wallet: WalletService,
     private api: ApiService,
     private notifications: NotificationService,
-    private nanoBlock: NanoBlockService,
+    private nanoBlock: NOSBlockService,
     private util: UtilService,
     private representativeService: RepresentativeService,
     private ninjaService: MyNanoNinjaService,
@@ -83,7 +83,7 @@ export class RepresentativesComponent implements OnInit {
       const repOnline = onlineReps.indexOf(representative.account) !== -1;
       const knownRep = await this.ninjaService.getAccount(representative.account);
 
-      const nanoWeight = this.util.nano.rawToMnano(representative.votingweight || 0);
+      const nanoWeight = this.util.nano.rawToNOS(representative.votingweight || 0);
       const percent = nanoWeight.div(totalSupply).times(100);
 
       // Determine the status based on some factors

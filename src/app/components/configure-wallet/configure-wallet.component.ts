@@ -23,9 +23,9 @@ export class ConfigureWalletComponent implements OnInit {
 
   selectedImportOption = 'seed';
   importOptions = [
-    { name: 'Nano Seed', value: 'seed' },
-    { name: 'Nano Mnemonic Phrase', value: 'mnemonic' },
-    { name: 'NanoVault Wallet File', value: 'file' },
+    { name: 'NOS Seed', value: 'seed' },
+    { name: 'NOS Mnemonic Phrase', value: 'mnemonic' },
+    { name: 'NOSwallet Wallet File', value: 'file' },
     { name: 'Ledger Nano S', value: 'ledger' },
   ];
 
@@ -90,7 +90,7 @@ export class ConfigureWalletComponent implements OnInit {
     }
 
     if (this.ledger.status === LedgerStatus.LOCKED) {
-      return this.notifications.sendWarning(`Unlock your ledger device and open the Nano app to continue`);
+      return this.notifications.sendWarning(`Unlock your ledger device and open the NOS app to continue`);
     }
 
     if (refreshOnly) {
