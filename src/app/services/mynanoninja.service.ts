@@ -7,7 +7,7 @@ import { UtilService } from "./util.service";
 export class MyNanoNinjaService {
 
   // URL to Ninja API
-  ninjaUrl = 'https://mynano.ninja/api/';
+  ninjaUrl = 'https://raw.githubusercontent.com/BitDesert/MyNanoNinja-NOS-Mock/master/api/';
 
   // null - loading, false - offline, true - online
   status = null;

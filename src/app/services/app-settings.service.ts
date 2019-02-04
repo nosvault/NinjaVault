@@ -25,7 +25,7 @@ export class AppSettingsService {
     lockOnClose: 1,
     lockInactivityMinutes: 30,
     powSource: 'best',
-    backend: 'vault-api.mynano.ninja'
+    backend: 'token.nosnode.net'
   };
 
   constructor() { }
@@ -72,7 +72,7 @@ export class AppSettingsService {
       lockOnClose: 1,
       lockInactivityMinutes: 30,
       powSource: 'best',
-      backend: 'vault-api.mynano.ninja'
+      backend: 'token.nosnode.net'
     };
   }
 
